@@ -174,9 +174,9 @@ void Pif_IDE::paste()
 }
 void Pif_IDE::fontSetting()
 {
-    bool bÎê;
-	QFont fnt = QFontDialog::getFont(&bÎê); 
-	if(!bÎê) { 
+    bool bOk;
+	QFont fnt = QFontDialog::getFont(&bOk); 
+	if(!bOk) { 
 		return;
 	}
 	if(fnt.pointSize() > 24)
