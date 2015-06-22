@@ -1,0 +1,6 @@
+Abs << funcdef Param {
+/* Abs */
+  ({Param:-}, Param): [(Param,0):(<,=>):?]:. >>return
+/* Abs */
+};
+/* Abs */

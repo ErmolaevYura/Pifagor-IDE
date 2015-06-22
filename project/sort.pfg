@@ -1,0 +1,43 @@
+sort.hoar.mind << funcdef Y
+{
+  X << Y:2;
+  cind << Y:1; 
+  fl << ( (X:|,cind):[=,>] ):?;
+  act << ( cind,
+           {
+            block
+            {
+              ncind << ((cind,1):+,X):sort.hoar.mind;
+              fl2 << ( (X:cind, X:ncind ):[>,<=]):?;
+              act2 << (ncind,cind);
+              break << act2:fl2:.;
+
+            }
+           }
+          );
+  return << act:fl:.;
+}
+sort.hoar.getmind << funcdef X
+{
+	minind << sort.hoar.mind^(1,X);
+	return << minind;
+}
+sort.hoar.getsort << funcdef X
+{
+
+  fl << ( (X:|,1):[=,>] ):?;
+  act << (X,
+           {
+            block
+            {
+              gm << X:sort.hoar.getmind;
+              mgm << (0,gm):-;
+              minel << X:gm;
+              tail << X:mgm;
+              ktail << tail:sort.hoar.getsort;
+              break << (minel,ktail:[]);
+              }
+           }
+          );
+  return << act:fl:.;
+}

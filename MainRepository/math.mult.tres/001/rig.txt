@@ -1,0 +1,9 @@
+External
+	0	math.mult.tres
+Local
+	0	3
+id	delay	operation	links		positions
+0	0	arg				pos 9 27 9 28
+1	0	(---)		0 loc:0		pos 11 19 11 24
+2	0	:		1 *		pos 11 24 11 25
+3	0	return		2		pos 11 9 11 15

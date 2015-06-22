@@ -1,0 +1,6 @@
+External
+	0	math.mult.uno
+Local
+id	delay	operation	links		positions
+0	0	arg				pos 1 26 1 27
+1	0	return		0		pos 3 9 3 15

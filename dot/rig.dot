@@ -1,0 +1,112 @@
+digraph "factR" {
+rankdir=BT
+
+node [
+  fontsize = "14"
+  fontcolor = "black"
+  shape = "box"
+  style = "solid"
+]
+
+edge [
+  fontsize = "14"
+  fontcolor = "black"
+  color = "black"
+  style = "solid"
+]
+
+"e0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0: factR"
+  shape = "hexagon"
+]
+
+"e1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1: FactRightRec"
+  shape = "hexagon"
+]
+
+"l0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0: 1"
+  shape = "box"
+]
+
+"n0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0"
+  shape = "invhouse"
+]
+
+"n1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1\n(-----)"
+  shape = "box"
+  style = "rounded"
+]
+
+"n2" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "2\n:"
+  shape = "circle"
+]
+
+"n3" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "3"
+  shape = "invhouse"
+]
+
+"n0" -> "e0" [
+  style = "invis"
+]
+
+"n1" -> "l0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "solid"
+]
+
+"n1" -> "n0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "solid"
+]
+
+"n2" -> "n1" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Data"
+  color = "black"
+  style = "solid"
+]
+
+"n2" -> "e1" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Func"
+  color = "black"
+  style = "solid"
+]
+
+"n3" -> "n2" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Result"
+  color = "black"
+  style = "solid"
+]
+
+}

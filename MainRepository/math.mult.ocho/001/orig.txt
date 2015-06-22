@@ -1,0 +1,4 @@
+math.mult.ocho << funcdef X
+{
+	return << X:math.mult.dos:math.mult.dos:math.mult.dos;
+}

@@ -1,0 +1,4 @@
+math.mult.siete << funcdef X
+{
+	return << (X:math.mult.tres,X:math.mult.cuatro):+;
+}

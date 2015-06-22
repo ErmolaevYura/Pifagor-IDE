@@ -1,0 +1,744 @@
+digraph "FactRightRec" {
+node [
+  fontsize = "14"
+  fontcolor = "black"
+  shape = "box"
+  style = "solid"
+]
+
+edge [
+  fontsize = "14"
+  fontcolor = "black"
+  color = "black"
+  style = "dotted"
+]
+
+"signal0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal2" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal3" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal4" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal5" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal6" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal7" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal8" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal9" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal10" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal11" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal12" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal13" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal14" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal15" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1"
+  shape = "ellipse"
+]
+
+"signal-dyn0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "?"
+  shape = "ellipse"
+]
+
+"name" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "FactRightRec"
+  shape = "none"
+]
+
+"begin" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = ""
+  shape = "invtriangle"
+]
+
+"ctrl0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0\narg#0=>0"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1\n:#0=>1"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl2" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "2\n:#0=>2"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl3" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "3\n(---)#0=>3"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl4" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "4\n[---]#0=>4"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl5" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "5\n:#0=>5"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl6" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "6\n(---)#0=>6"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl7" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "7\n[---]#0=>7"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl8" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "8\n:#0=>8"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl9" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "9\n(---)#0=>9"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl10" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "10\n:#0=>10"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl11" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "11\n[---]#0=>11"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl12" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "12\n(---)#0=>12"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl13" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "13\n(---)#0=>13"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl14" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "14\n:#0=>14"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl15" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "15\n(---)#0=>15"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl16" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "16\n:#0=>16"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl17" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "17\n(---)#0=>17"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl18" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "18\n:#0=>18"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl19" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "19\n[---]#0=>19"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl20" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "20\n(---)#0=>20"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl21" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "21\n:#0=>21"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl22" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "22\n:#0=>22"
+  shape = "box"
+  style = "rounded"
+]
+
+"ctrl23" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "23\nreturn#0=>23"
+  shape = "box"
+  style = "rounded"
+]
+
+"end" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = ""
+  shape = "invtriangle"
+]
+
+"signal0" -> "ctrl1" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal1" -> "ctrl2" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal2" -> "ctrl3" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal3" -> "ctrl4" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"signal4" -> "ctrl4" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal5" -> "ctrl6" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal6" -> "ctrl7" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"signal7" -> "ctrl7" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal8" -> "ctrl10" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal9" -> "ctrl12" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"signal10" -> "ctrl14" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal11" -> "ctrl15" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal12" -> "ctrl16" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal13" -> "ctrl18" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"signal14" -> "ctrl20" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "4"
+  color = "black"
+  style = "dotted"
+]
+
+"signal15" -> "ctrl22" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"name" -> "begin" [
+  style = "invis"
+]
+
+"begin" -> "ctrl0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = ""
+  arrowtail = "dot"
+  color = "black"
+  style = "solid"
+]
+
+"ctrl0" -> "ctrl1" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl0" -> "ctrl2" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl1" -> "ctrl13" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl1" -> "ctrl20" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl1" -> "ctrl20" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "3"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl2" -> "ctrl3" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl2" -> "ctrl6" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl2" -> "ctrl12" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl2" -> "ctrl13" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl2" -> "ctrl15" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl3" -> "ctrl5" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl4" -> "ctrl5" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl5" -> "ctrl9" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl6" -> "ctrl8" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl7" -> "ctrl8" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl8" -> "ctrl9" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl9" -> "ctrl10" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl10" -> "ctrl11" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl11" -> "ctrl21" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl12" -> "ctrl20" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl13" -> "ctrl14" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl14" -> "ctrl17" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl15" -> "ctrl16" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl16" -> "ctrl17" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl17" -> "ctrl18" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl18" -> "ctrl19" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl20" -> "ctrl21" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl21" -> "ctrl22" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl22" -> "ctrl23" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+"ctrl23" -> "end" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = ""
+  arrowtail = "dot"
+  color = "black"
+  style = "solid"
+]
+
+"ctrl19" -> "signal-dyn0" [
+  fontsize = "12"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "dotted"
+]
+
+subgraph "cluster_delay_1" {
+  label="Delay List # 1"
+  labelloc=b
+  "ctrl13" "ctrl14" "ctrl15" "ctrl16" "ctrl17" "ctrl18" "ctrl19" 
+}
+
+}

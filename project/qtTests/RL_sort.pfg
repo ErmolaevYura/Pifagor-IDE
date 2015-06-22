@@ -1,0 +1,43 @@
+qtTests.sort.hoar.mind << funcdef Y
+{
+  X << Y:2;
+  cind << Y:1; 
+  fl << ( (X:|,cind):[=,>] ):?;
+  act << ( cind,
+           {
+            block
+            {
+              ncind << ((cind,1):+,X):qtTests.sort.hoar.mind;
+              fl2 << ( (X:cind, X:ncind ):[>,<=]):?;
+              act2 << (ncind,cind);
+              break << act2:fl2:.;
+
+            }
+           }
+          );
+  return << act:fl:.;
+}
+qtTests.sort.hoar.getmind << funcdef X
+{
+	minind << qtTests.sort.hoar.mind^(1,X);
+	return << minind;
+}
+qtTests.sort.hoar.getsort << funcdef X
+{
+
+  fl << ( (X:|,1):[=,>] ):?;
+  act << (X,
+           {
+            block
+            {
+              gm << X:qtTests.sort.hoar.getmind;
+              mgm << (0,gm):-;
+              minel << X:gm;
+              tail << X:mgm;
+              ktail << tail:qtTests.sort.hoar.getsort;
+              break << (minel,ktail:[]);
+              }
+           }
+          );
+  return << act:fl:.;
+}

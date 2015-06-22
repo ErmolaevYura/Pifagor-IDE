@@ -1,0 +1,14 @@
+//берем спец-элемент и передаем его в другую функцию, где и используем
+
+
+qtTests.easyPointTest << funcdef X
+{
+	return << [1,2,3]:(.);
+}
+qtTests.hardPointTest << funcdef X
+{
+	x << (1,2):+;
+	y << (x,5):-;
+	z << (x,y):*;
+	return << [x,y,z]:(.);
+}

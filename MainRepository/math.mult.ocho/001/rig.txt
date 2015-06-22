@@ -1,0 +1,10 @@
+External
+	0	math.mult.ocho
+	1	math.mult.dos
+Local
+id	delay	operation	links		positions
+0	0	arg				pos 29 27 29 28
+1	0	:		0 ext:1		pos 31 20 31 21
+2	0	:		1 ext:1		pos 31 34 31 35
+3	0	:		2 ext:1		pos 31 48 31 49
+4	0	return		3		pos 31 9 31 15

@@ -1,0 +1,22 @@
+qtTests.isPosit << funcdef X
+{
+	val << (true,false);
+	kluch<<((X,0):[>,<=]):?;
+	return<<val:kluch:.;
+}
+qtTests.isNegat << funcdef X
+{
+	val << (true,false);
+	kluch<<((X,0):[<,>=]):?;
+	return<<val:kluch:.;
+}
+qtTests.isZero << funcdef X
+{
+	val << (true,false);
+	kluch<<((X,0):[=,!=]):?;
+	return<<val:kluch:.;
+}
+qtTests.isAny << funcdef X
+{
+	return << true;
+}

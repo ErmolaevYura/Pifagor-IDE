@@ -1,0 +1,329 @@
+//////////////////////////////////////////////
+//  sem.f1, sem.f2                          //
+//  Simple functions for internal purposes  //
+//////////////////////////////////////////////
+sem.f1 << funcdef
+{
+    return << "F1";
+}
+sem.f2 << funcdef
+{
+    return << "F2";
+}
+
+//////////////////////////////////////
+//  sem.calls                       //
+//  Testing empty function (.)      //
+//  Right answer is:                //
+//                                  //
+//      ((T,1),(F,1),(F,2),7,10)    //
+//                                  //
+//////////////////////////////////////
+sem.calls << funcdef
+{
+    t1 << "T1":.;
+    t2 << sem.f1^.;
+    t3 << .:sem.f2;
+    d1 << {(5,2):+};
+    d2 << {(5,2):*};
+    t4 << d1:.;
+    t5 << .^d2;
+    return << (t1,t2,t3,t4,t5);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//  sem.types                                                                                   //
+//  Testing output of different base types                                                      //
+//  Right answer is:                                                                            //
+//                                                                                              //
+//      (.,9,3.140000,true,plus,ext 1 - ,ZERODIVIDE,BOUNDERROR,(1,2,3),1,2,3,delaylist 1,INT)   //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+sem.types << funcdef
+{
+    s1 << .;
+    i1 << 9;
+    f1 << 3.14;
+    b1 << true;
+    if1 << +;
+
+    //TOFIX
+    uf1 << sem.calls;
+
+    er1 << (1,0):/;
+    er2 << (1,2,3):4;
+
+    dl1 << (1,2,3);
+    pl1 << [1,2,3];
+    dell1 << {1,1:-};
+    t1  << 1:type;
+
+    return << (s1,i1,f1,b1,if1,uf1,er1,er2,dl1,pl1,dell1,t1);
+
+    //one fix to fix
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//  sem.typeofs                                                                                     //
+//  Testing typeofs of different base types                                                         //
+//  Right answer is:                                                                                //
+//                                                                                                  //
+//      [INT_FUNC,INT,FLOAT,BOOL,INT_FUNC,EXT_FUNC,ERROR,ERROR,DATALIST,[INT,INT,INT],TYPEERROR]    //
+//                                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+sem.typeofs << funcdef
+{
+    s1 << .;
+    i1 << 9;
+    f1 << 3.14;
+    b1 << true;
+    if1 << +;
+    uf1 << sem.calls;
+    er1 << (1,0):/;
+    er2 << (1,2,3):4;
+    dl1 << (1,2,3);
+    pl1 << [1,2,3];
+    t1  << 1:type;
+
+    return << [s1,i1,f1,b1,if1,uf1,er1,er2,dl1,pl1,t1]:type;
+    //btw, how do we get get "type" result?
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+//  sem.plus                                                                            //
+//  Testing addition                                                                    //
+//  Right answer is:                                                                    //
+//                                                                                      //
+//      [2,-3,2.500000,-3.400000,true,-1,4.500000,4.500000,-0.900000,BASEFUNCERROR]     //
+//////////////////////////////////////////////////////////////////////////////////////////
+sem.plus << funcdef
+{
+    i1 << 2;
+    i2 << -3;
+    f1 << 2.5;
+    f2 << -3.4;
+    b1 << true;
+    b2 << false;
+
+    d1 << (b1,b2);
+    d2 << (i1,i2);
+    d3 << (i1,f1);
+    d4 << (f1,i1);
+    d5 << (f1,f2);
+
+    d6 << (true, (1,2));
+
+    return << [i1,i2,f1,f2,d1,d2,d3,d4,d5,d6]:+;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+//  sem.minus                                                                           //
+//  Testing substraction                                                                //
+//  Right answer is:                                                                    //
+//                                                                                      //
+//      [-2,3,-2.500000,3.400000,false,5,-0.500000,0.500000,5.900000,BASEFUNCERROR]     //
+//////////////////////////////////////////////////////////////////////////////////////////
+sem.minus << funcdef
+{
+    i1 << 2;
+    i2 << -3;
+    f1 << 2.5;
+    f2 << -3.4;
+    b1 << true;
+    b2 << true;
+
+    d1 << (b1,b2);
+    d2 << (i1,i2);
+    d3 << (i1,f1);
+    d4 << (f1,i1);
+    d5 << (f1,f2);
+
+    d6 << (true, (1,2));
+
+    return << [i1,i2,f1,f2,d1,d2,d3,d4,d5,d6]:-;
+}
+//////////////////////////////////////////////////////////////////
+//  sem.mult                                                    //
+//  Testing multiplication                                      //
+//  Right answer is:                                            //
+//                                                              //
+//      [true,-6,5.000000,5.000000,-8.500000,BASEFUNCERROR]     //
+//////////////////////////////////////////////////////////////////
+sem.mult << funcdef
+{
+    i1 << 2;
+    i2 << -3;
+    f1 << 2.5;
+    f2 << -3.4;
+    b1 << true;
+    b2 << true;
+
+    d1 << (b1,b2);
+    d2 << (i1,i2);
+    d3 << (i1,f1);
+    d4 << (f1,i1);
+    d5 << (f1,f2);
+    d6 << (true, (1,2));
+
+    return << [d1,d2,d3,d4,d5,d6]:*;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+//  sem.div                                                                             //
+//  Testing division                                                                    //
+//  Right answer is:                                                                    //
+//                                                                                      //
+//      [-0.666667,0.800000,1.250000,-0.735294,BASEFUNCERROR,ZERODIVIDE,ZERODIVIDE]     //
+//////////////////////////////////////////////////////////////////////////////////////////
+sem.div << funcdef
+{
+    i1 << 2;
+    i2 << -3;
+    f1 << 2.5;
+    f2 << -3.4;
+
+    d1 << (i1,i2);
+    d2 << (i1,f1);
+    d3 << (f1,i1);
+    d4 << (f1,f2);
+    d5 << (true, (1,2));
+    d6 << (i1,0);
+    d7 << (f1,0.0);
+
+    return << [d1,d2,d3,d4,d5,d6,d7]:/;
+}
+//////////////////////////////////////////////////////////
+//  sem.idiv                                            //
+//  Testing int-division                                //
+//  Right answer is:                                    //
+//                                                      //
+//      [(2,1),(-2,1),BASEFUNCERROR,BASEFUNCERROR]      //
+//////////////////////////////////////////////////////////
+sem.idiv << funcdef
+{
+    i1 << 5;
+    i2 << 2;
+    i3 << -2;
+    f1 << 1.5;
+
+    d1 << (i1,i2);
+    d2 << (i1,i3);
+    d3 << (f1,i1);
+    d4 << (true, (1,2));
+
+    return << [d1,d2,d3,d4]:%;
+}
+//////////////////////////////////////////////////////////////////////////////
+//  sem.comp                                                                //
+//  Testing comparations                                                    //
+//  Right answer is:                                                        //
+//                                                                          //
+//      [[true,true,false,false,false,false,true,false,true,false],         //
+//          [false,false,true,true,true,true,false,true,false,true],        //
+//          [false,false,false,false,true,false,false,false,false,true],    //
+//          [true,true,false,false,true,false,true,false,true,true],        //
+//          [false,false,true,true,false,true,false,true,false,false],      //
+//          [true,true,true,true,false,true,true,true,true,false]]          //
+//////////////////////////////////////////////////////////////////////////////
+sem.comp << funcdef
+{
+    i1 << 5;
+    i2 << -2;
+    f1 << 1.5;
+    f2 << -3.5;
+    b1 << true;
+    b2 << false;
+    c1 << "Word":1;
+    c2 << "Word":2;
+
+    d1 << (i1,i1);
+    d2 << (f1,f1);
+    d3 << (i1,i2);
+    d4 << (i1,f1);
+    d5 << (f1,i1);
+    d6 << (f1,f2);
+    d7 << (b1,b1);
+    d8 << (b1,b2);
+    d9 << (c1,c1);
+    d10 << (c1,c2);
+
+    return << [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10]:[=,!=,<,<=,>,>=];
+}
+/////////////////////////////////////////////////////////////////////////////
+//  sem.list                                                               //
+//  Testing list trics                                                     //
+//  Right answer is:                                                       //
+//                                                                         //
+//      (2,3,                                                              //
+//            2,2,1,1,BOUNDERROR,3,                                        //
+//            BASEFUNCERROR,1,2,5,                                         //
+//            ((1,4,7,9),(2,5,8),(3,6)),                                   //
+//            (5),                                                         //
+//            1,2,                                                         //
+//            (1,2,3,4,5),                                                 //
+//            (1,3,5),                                                     //
+//            (10.500000,10.000000,9.500000,9.000000,8.500000,8.000000,7.500000,7.000000,6.500000,6.000000,5.500000,5.000000,4.500000,4.000000,3.500000,3.000000,2.500000,2.000000,1.500000,1.000000,0.500000,0.000000,-0.500000,-1.000000,-1.500000,-2.000000,-2.500000,-3.000000,-3.500000,-4.000000,-4.500000,-5.000000,-5.500000,-6.000000,-6.500000,-7.000000,-7.500000,-8.000000,-8.500000,-9.000000,-9.500000,-10.000000,-10.500000),
+//            BOUNDERROR,                                                  //
+//            (true,true,true,true,true),                                  //
+//            (o,o,o,o,o,o,o,o,o,o))                                       //
+/////////////////////////////////////////////////////////////////////////////
+sem.list << funcdef
+{
+    d1 << (1,2);
+    d2 << (1,2,3);
+    res1 << [d1,d2]:|;                          //get length
+    res2 << [d1,d2]:[2,1,3];                    //select element
+    d3 << (true,true,false,false,true);
+    res3 << [d1,d3]:?;                          //seeking for truth
+    d4 << ((1,2,3),(4,5,6),(7,8),(9));
+    res4 << d4:#;                               //transpoiting
+    i1 << 5;
+    res5 << i1:();                              //datalisting
+    res6 << d1:[];                              //parlisting
+    res7 << (1,5):..;                           //seq1
+    res8 << (1,5,2):..;                         //seq2
+    res9 << (10.5,-10.5,-0.5):..;               //seq3
+    res10 << (10.5,-10.5,0.5):..;               //seq4
+    res11 << (true,5):dup;                      //dupping
+    res12 << ("Word":2,10):dup;                 //dupping
+
+    return << (res1,res2,res3,res4,res5,res6,res7,res8,res9,res10,res11,res12);
+    //return << (res1,res2,res3,res4,res5,res6,res7,res8,res9,res10,res11,res12);
+}
+/////////////////////////////////////////////////////////////////////////////
+//  sem.all                                                                //
+//  Testing all                                                            //
+//  Right answer is:                                                       //
+//                                                                         //
+//      [((T,1),(F,1),(F,2),7,10),
+//        (.,9,3.140000,true,plus,ext 1 - ,ZERODIVIDE,BOUNDERROR,(1,2,3),1,2,3,delaylist 1,INT),
+//        [INT_FUNC,INT,FLOAT,BOOL,INT_FUNC,EXT_FUNC,ERROR,ERROR,DATALIST,[INT,INT,INT],TYPEERROR],
+//        [2,-3,2.500000,-3.400000,true,-1,4.500000,4.500000,-0.900000,BASEFUNCERROR],
+//        [-2,3,-2.500000,3.400000,false,5,-0.500000,0.500000,5.900000,BASEFUNCERROR],
+//        [true,-6,5.000000,5.000000,-8.500000,BASEFUNCERROR],
+//        [-0.666667,0.800000,1.250000,-0.735294,BASEFUNCERROR,ZERODIVIDE,ZERODIVIDE],
+//        [(2,1),(-2,1),BASEFUNCERROR,BASEFUNCERROR],
+//        [ [true,true,false,false,false,false,true,false,true,false],
+//          [false,false,true,true,true,true,false,true,false,true],
+//          [false,false,false,false,true,false,false,false,false,true],
+//          [true,true,false,false,true,false,true,false,true,true],
+//          [false,false,true,true,false,true,false,true,false,false],
+//          [true,true,true,true,false,true,true,true,true,false]],
+//
+//      (2,3,                                                              //
+//            2,2,1,1,BOUNDERROR,3,                                        //
+//            BASEFUNCERROR,1,2,5,                                         //
+//            ((1,4,7,9),(2,5,8),(3,6)),                                   //
+//            (5),                                                         //
+//            1,2,                                                         //
+//            (1,2,3,4,5),                                                 //
+//            (1,3,5),                                                     //
+//            (10.500000,10.000000,9.500000,9.000000,8.500000,8.000000,7.500000,7.000000,6.500000,6.000000,5.500000,5.000000,4.500000,4.000000,3.500000,3.000000,2.500000,2.000000,1.500000,1.000000,0.500000,0.000000,-0.500000,-1.000000,-1.500000,-2.000000,-2.500000,-3.000000,-3.500000,-4.000000,-4.500000,-5.000000,-5.500000,-6.000000,-6.500000,-7.000000,-7.500000,-8.000000,-8.500000,-9.000000,-9.500000,-10.000000,-10.500000),
+//            BOUNDERROR,                                                  //
+//            (true,true,true,true,true),                                  //
+//            (o,o,o,o,o,o,o,o,o,o))                                       //
+//
+//                      OR
+//
+//  [((T,1),(F,1),(F,2),7,10),(.,9,3.140000,true,plus,ext 1 - ,ZERODIVIDE,BOUNDERROR,(1,2,3),1,2,3,delaylist 1,INT),[INT_FUNC,INT,FLOAT,BOOL,INT_FUNC,EXT_FUNC,ERROR,ERROR,DATALIST,[INT,INT,INT],TYPEERROR],[2,-3,2.500000,-3.400000,true,-1,4.500000,4.500000,-0.900000,BASEFUNCERROR],[-2,3,-2.500000,3.400000,false,5,-0.500000,0.500000,5.900000,BASEFUNCERROR],[true,-6,5.000000,5.000000,-8.500000,BASEFUNCERROR],[-0.666667,0.800000,1.250000,-0.735294,BASEFUNCERROR,ZERODIVIDE,ZERODIVIDE],[(2,1),(-2,1),BASEFUNCERROR,BASEFUNCERROR],[[true,true,false,false,false,false,true,false,true,false],[false,false,true,true,true,true,false,true,false,true],[false,false,false,false,true,false,false,false,false,true],[true,true,false,false,true,false,true,false,true,true],[false,false,true,true,false,true,false,true,false,false],[true,true,true,true,false,true,true,true,true,false]],(2,3,2,2,1,1,BOUNDERROR,3,BASEFUNCERROR,1,2,5,((1,4,7,9),(2,5,8),(3,6)),(5),1,2,(1,2,3,4,5),(1,3,5),(10.500000,10.000000,9.500000,9.000000,8.500000,8.000000,7.500000,7.000000,6.500000,6.000000,5.500000,5.000000,4.500000,4.000000,3.500000,3.000000,2.500000,2.000000,1.500000,1.000000,0.500000,0.000000,-0.500000,-1.000000,-1.500000,-2.000000,-2.500000,-3.000000,-3.500000,-4.000000,-4.500000,-5.000000,-5.500000,-6.000000,-6.500000,-7.000000,-7.500000,-8.000000,-8.500000,-9.000000,-9.500000,-10.000000,-10.500000),BOUNDERROR,(true,true,true,true,true),(o,o,o,o,o,o,o,o,o,o))]
+/////////////////////////////////////////////////////////////////////////////
+
+sem.all << funcdef
+{
+    return << .:[sem.calls,sem.types,sem.typeofs,sem.plus,sem.minus,sem.mult,sem.div,sem.idiv,sem.comp,sem.list];
+}

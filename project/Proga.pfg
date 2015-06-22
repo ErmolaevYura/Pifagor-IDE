@@ -1,0 +1,289 @@
+Recurse << prefunc;
+VSum << prefunc;
+VSum1 << prefunc;
+VSMult << prefunc;
+MVMult << prefunc;
+MTransp << prefunc;
+RTransp << prefunc;
+Transp << prefunc;
+ParMax << prefunc;
+ParMin << prefunc;
+TwoSwap << prefunc;
+SqrtR << prefunc;
+
+// Функция, параллельно находящая сумму, разность, произведение и частное 
+// двух чисел - элементов двухэлементного списка аргументов
+ParASMD << funcdef Param
+{
+ Param:[+,-,*,/]:(.):return
+};
+
+// Функция, возвращающая абсолютное значение аргумента
+Abs << funcdef Param
+{
+ ({Param:-},{Param}):[(Param,0):(<,=>):?]:return
+};
+
+// Функция, возвращающая квадратный корень из аргумента
+Sqrt << funcdef Param
+{
+ ({(Param,Param):SqrtR:2},{("Param<0 in Sqrt",(2):+)}): [(Param,0):(>=,<):?]:return
+};
+
+// Вспомогательная рекурсивная функция для функции Sqrt
+SqrtR << funcdef Param
+{
+ A << Param:1;
+ X << Param:2;
+ Xn << (X,(((X,X):*,A):-,(2,X):*):/):-;
+ ({(A,Xn)},
+ {(A,Xn):SqrtR}):[((Xn,X):-:Abs,0.00001):(<,>=):?]:return
+};
+
+// Функция, возвращающая действительные корни квадратного уравнения
+SquareRoot <<  funcdef Param
+{
+ a << Param:1;
+ b << Param:2;
+ c << Param:3;
+ D << ((b,b):*,(_2a<<(a,2):*,(2,c):*):*):-;
+ ("No Real Root found !",			// Нет корней
+ {(b:-,_2a):/},					// Один корень
+ {((b:-,SqD<<D:Sqrt):(+,-),(_2a,_2a)):#:[]:(/)}): // Два корня
+ [(D,0):(<,=,>):?]:return
+};
+
+// Функция, возвращающая сумму элементов вектора (рекурсивная)
+VSum << funcdef Param
+{
+ Len<<Param:|;	
+ return^[((Len,2):[<,=,>]):?]^
+ ({Param:[]},
+ {Param:+},
+ {block{
+        OddVec<< Param:[(1,Len,2):..]:(.);
+        EvenVec<< Param:[(2,Len,2):..]:(.);
+        ([OddVec,EvenVec]:VSum):+:break}
+ })
+};
+
+// Функция, возвращающая сумму элементов вектора (рекурсивная)
+VSum1 << funcdef Param
+{
+ Len<<Param:1:|;	
+ Func<<Param:2;
+ return^[((Len,2):[<,=,>]):?]^
+ ({Param:[]},
+ {Param:Func},
+ {block{
+        OddVec<< Param:1:[(1,Len,2):..]:(.);
+        EvenVec<< Param:1:[(2,Len,2):..]:(.);
+        ([OddVec,EvenVec]:VSum):Func:break}
+ })
+};
+
+PFunc << funcdef Param
+{
+ [Param:1,Param:2]:(Abs):+:return
+};
+
+Main << funcdef Param
+{
+ ((1,-2,3,-4),PFunc):VSum1:return
+};
+
+// Функция, возвращающая произведение двух векторов
+VVMult << funcdef Param
+{
+ (Param:#:[]:*):VSum:return
+};
+
+// Функция, возвращающая (в зависисмости от третьего элемента аргумента)
+// сумму или разность двух векторов 
+VVAddSub << funcdef Param
+{
+ (Param:1,Param:2):#:[]:(Param:3):return
+};
+
+// Функция, возвращающая (в зависисмости от третьего элемента аргумента)
+// сумму или разность двух матриц 
+MMAddSub << funcdef Param
+{
+ Oper<< (Param:3,Param:1:|):dup;
+ (Param:1,Param:2,Oper):#:[]:(VVAddSub):return
+};
+
+// Функция, возвращающая произведение матрицы на скаляр
+MSMult << funcdef Param
+{
+ A << Param:1;
+ (A,(Param:2,A:|):dup):#:[]:VSMult:(.):return
+};
+
+// Функция, возвращающая произведение двух матриц
+MMMult << funcdef Param
+{
+ BT<< Param:2:#;
+ n<<BT:|;
+ AR<<(Param:1,n):dup;
+ ((AR,BT):#:[]:MVMult):#:return
+};
+
+// Функция, возвращающая произведение матрицы на вектор
+MVMult << funcdef Param
+{
+ A<<Param:1;
+ b<<Param:2;
+ n<<A:|;
+ B<<(b,n):dup;
+ ((A,B):#:[]:VVMult):return
+};
+
+// Функция, возвращающая произведение вектора на скаляр
+VSMult << funcdef Param
+{
+ a<<Param:1;
+ b<<Param:2;
+ Len<<a:|;
+ d<<(b,Len):dup;
+ ((a,d):#:[]:*):return
+};
+
+// Функция, выводящая на экран числа от Param-1 до 1 (рекурсивная)
+Recurse << funcdef Param
+{
+ Go << (Param,1):(=,>):?;
+ ("OK!",{(Param,1):-:out:Recurse}):Go:return
+};
+
+// Функция рекурсивного транспонирования прямоугольных матриц
+MTransp << funcdef matr 
+{
+ (matr,matr:[]:1:(.):()):RTransp:return
+};
+
+// Вспомогательная функция для функции рекурсивного транспонирования
+// прямоугольных матриц
+RTransp << funcdef Param
+{
+ Tmp1 << Param:2:out;
+ Matr << Param:1;
+ Counter << ((Matr:1:|,Tmp1:|):-,1):-;
+ Var << (Counter,0):(<,=>):?;
+ Elem << (Tmp1:|,1):+;
+ return^Var^(
+ Tmp1,
+ {(Matr,[Tmp1:[],Matr:[]:Elem:(.)]:(.)):RTransp}
+ )
+};
+
+// Функция транспонирования прямоугольных матриц без использования рекурсии
+// и операции #
+Transp << funcdef matr 
+{
+ matr:1:| >> colums;
+ return^(matr:[]:[(1, colums):..:()])
+};
+
+ParMax << funcdef vector 
+
+// Функция нахождения максимального элемента вектора
+
+{
+ return^[((len<<vector:|,1):[<,=,>]):?]^
+(
+  "Vector is empty!",
+  {vector:[]},
+  {[((len,2):[=,>]):?]^(
+                        {vector:[vector:(>,<=):?]},
+                        {block{
+                               odd_even_Vec << (vector:((1,len,2):..),vector:((2,len,2):..));
+                               MaxVec << odd_even_Vec:[]:ParMax:(.);
+                               MaxVec:[MaxVec:(>,<=):?]:break
+                              }
+                        }
+                       )
+  }
+ )
+};
+
+// Функция нахождения минимального элемента вектора
+ParMin << funcdef vector 
+{
+ return<<[((len<<vector:|,1):[<,=,>]):?]^
+ (
+  "Vector is empty!",
+  {vector:[]},
+  {[((len,2):[=,>]):?]^(
+                        {vector:[vector:(<,>=):?]},
+                        {block{
+			       odd_even_Vec << (vector:((1,len,2):..),vector:((2,len,2):..));
+                               MinVec << odd_even_Vec:[]:ParMin:(.);
+                               MinVec:[MinVec:(<,>=):?]:break
+                              }
+                        }
+                       )
+  }
+ )
+};
+
+// Семейство функций для сортировки элементов вектора
+// Функция перестановки по возрастанию элементов одно или двухэлементного списка
+SwapPairGreat << funcdef Param
+{
+ Ch1 << (Param:|,1):(=,>):?;
+ Ch2 << (Param:1,Param:2):(<,>=):?;
+ ({Param},
+  {({(Param:1,Param:2)},
+  {(Param:2,Param:1)}):Ch2}):Ch1:return	
+};
+
+// Функция перестановки по убыванию элементов одно или двухэлементного списка
+SwapPairLess << funcdef Param
+{
+ Ch1 << (Param:|,1):(=,>):?;
+ Ch2 << (Param:1,Param:2):(>,<=):?;
+ ({Param},
+  {({(Param:1,Param:2)},
+  {(Param:2,Param:1)}):Ch2}):Ch1:return	
+};
+
+// Функция, осуществляющая две перестановки всех элементов списка
+// по убыванию или возрастанию, в зависимости от функции, передаваемой
+// в качестве третьего параметра
+SwapVector << funcdef Param
+{
+ Vector << Param:1;
+ F<<Param:2;
+ Len << Vector:|;
+ OddVec1 << Vector:[(1,Len,2):..]:(.);
+ EvenVec1 << Vector:[(2,Len,2):..]:(.);
+ TmpVec <<(OddVec1,EvenVec1):#:[]:F:[]:(.);
+ OddVec2 << TmpVec:[(2,Len,2):..]:(.);
+ EvenVec2 << TmpVec:[(3,Len,2):..]:(.);
+ (TmpVec:1,(OddVec2,EvenVec2):#:[]:F:[]):return
+};
+
+// Рекурсивная функция, осуществляющая необходимое количество перестановок
+// для полной сортировки элементов списка по убыванию или возрастанию, 
+// в зависимости от функции, передаваемой в качестве третьего параметра
+TwoSwap << funcdef Param
+{
+ Vector << Param:1;
+ Ch << (Couter<<Param:2,1):(=,>):?;
+ F<<Param:3;
+ ({Vector},
+ {((Vector,F):SwapVector,(Couter,1):-,F):TwoSwap}):Ch >>return
+};
+
+// Функция сортировки элементов списка по возрастанию
+SortGreat << funcdef Param
+{
+ (Param,((Param:|,2):%:1,2):+,SwapPairGreat):TwoSwap:return
+};
+
+// Функция сортировки элементов списка по убыванию
+SortLess << funcdef Param
+{
+ (Param,((Param:|,2):%:1,2):+,SwapPairLess):TwoSwap >>return
+}

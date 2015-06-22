@@ -1,0 +1,12 @@
+External
+	0	math.mult.cinco
+	1	math.mult.dos
+	2	math.mult.tres
+Local
+id	delay	operation	links		positions
+0	0	arg				pos 17 28 17 29
+1	0	:		0 ext:1		pos 19 21 19 22
+2	0	:		0 ext:2		pos 19 37 19 38
+3	0	(---)		1 2		pos 19 19 19 53
+4	0	:		3 +		pos 19 53 19 54
+5	0	return		4		pos 19 9 19 15

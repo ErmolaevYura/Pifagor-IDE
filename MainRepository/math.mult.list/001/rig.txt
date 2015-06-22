@@ -1,0 +1,12 @@
+External
+	0	math.mult.list
+Local
+	0	1
+	1	2
+id	delay	operation	links		positions
+0	0	arg				pos 33 27 33 28
+1	0	:		0 loc:0		pos 35 21 35 22
+2	0	:		0 loc:1		pos 35 25 35 26
+3	0	(---)		1 2		pos 35 19 35 28
+4	0	:		3 *		pos 35 28 35 29
+5	0	return		4		pos 35 9 35 15

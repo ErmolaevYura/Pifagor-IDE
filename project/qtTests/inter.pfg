@@ -1,0 +1,12 @@
+qtTests.inter1 << funcdef X
+{
+	return << (1,2):+;
+}
+qtTests.inter2 << funcdef X
+{
+	return << (X,2):*;
+}
+qtTests.inter3 << funcdef X
+{
+	return << (X:+,X:-,X:*,X:/);
+}

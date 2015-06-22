@@ -1,0 +1,18 @@
+External
+	0	Abs
+Local
+	0	{1}2
+	1	0
+id	delay	operation	links		positions
+0	0	arg				pos 1 16 1 21
+1	1	:		0 -		pos 3 10 3 11
+2	1	[---]		1		pos 3 4 3 13
+3	0	(---)		loc:0 0		pos 3 3 3 21
+4	0	(---)		0 loc:1		pos 3 24 3 33
+5	0	(---)		< >=		pos 3 34 3 40
+6	0	:		4 5		pos 3 33 3 34
+7	0	:		6 ?		pos 3 40 3 41
+8	0	[---]		7		pos 3 23 3 43
+9	0	:		3 8		pos 3 21 3 22
+10	0	:		9 .		pos 3 43 3 44
+11	0	return		10		pos 3 48 3 54

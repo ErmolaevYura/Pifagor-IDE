@@ -1,0 +1,23 @@
+External
+	0	math.mult.lister
+	1	math.mult.uno
+	2	math.mult.dos
+	3	math.mult.tres
+	4	math.mult.cuatro
+	5	math.mult.cinco
+	6	math.mult.seis
+	7	math.mult.siete
+	8	math.mult.ocho
+Local
+id	delay	operation	links		positions
+0	0	arg				pos 37 29 37 30
+1	0	:		0 ext:1		pos 39 21 39 22
+2	0	:		0 ext:2		pos 39 38 39 39
+3	0	:		0 ext:3		pos 39 55 39 56
+4	0	:		0 ext:4		pos 39 73 39 74
+5	0	:		0 ext:5		pos 39 93 39 94
+6	0	:		0 ext:6		pos 39 112 39 113
+7	0	:		0 ext:7		pos 39 130 39 131
+8	0	:		0 ext:8		pos 39 149 39 150
+9	0	[---]		1 2 3 4 5 6 7 8		pos 39 19 39 165
+10	0	return		9		pos 39 9 39 15

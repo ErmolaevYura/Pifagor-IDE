@@ -1,0 +1,10 @@
+math.mult.seis
+id	delay	automat		inode	links
+0	0	arg,0		0	links:1,1;
+1	0	:,0		1	links:2,1;
+2	0	:,0		2	links:3,1;
+3	0	return,0		3	
+Signals: (Number, Node, Input)
+0	1	2
+1	2	2
+Dynamic links: (Number, Delay list, Node)

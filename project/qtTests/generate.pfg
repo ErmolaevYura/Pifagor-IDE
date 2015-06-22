@@ -1,0 +1,18 @@
+qtTests.generate.generate << funcdef X	// X=(first,last,predFunc)
+{
+	first << X:1;
+	last << X:2;
+	predFunc << X:3;
+	array << (first,last):..;
+	mask << ((array:[]:predFunc):?);
+	filteredArray << array:mask;
+	return << filteredArray;
+} 
+qtTests.generate.callGenerate << funcdef X
+{
+	return << [(-10,10,qtTests.isPosit),(-10,10,qtTests.isNegat),(-10,10,qtTests.isAny)]:qtTests.generate.generate;
+}
+
+
+ 
+        

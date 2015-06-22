@@ -1,0 +1,27 @@
+// test - реверс списка с хвостовой рекурсией						1
+// X : 1 - исходный список								2
+// X : 2 - количество обработанных элементов						3
+// X : 3 — накопитель результата 							4
+qtTests.tailReverse << funcdef X { 							// 5
+	IList << X : 1; 								// 6
+	Counter << X : 2; 								// 7
+	TOList << X : 3; 								// 8
+	Len << IList : |; 								// 9
+											// 10
+	[((Counter, Len) : [>, <=]) : ?] ^ (						// 11
+		{TOList}, 								// 12
+		{ 									// 13
+			( 								// 14
+				IList, (Counter, 1) : +,  				// 15
+				(IList : Counter, TOList : [])				// 16
+			) : qtTests.tailReverse						// 17
+		} 									// 18
+	):. >> return     								// 19
+} 											// 20
+
+qtTests.callTailReverse << funcdef X
+{
+	reverse << (X,1,.):qtTests.tailReverse;
+	mReverseLen << reverse:|:-;
+	return << reverse:mReverseLen;
+}

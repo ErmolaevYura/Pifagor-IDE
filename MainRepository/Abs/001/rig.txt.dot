@@ -1,0 +1,328 @@
+digraph "Abs" {
+rankdir=BT
+
+node [
+  fontsize = "14"
+  fontcolor = "black"
+  shape = "box"
+  style = "solid"
+]
+
+edge [
+  fontsize = "14"
+  fontcolor = "black"
+  color = "black"
+  style = "solid"
+]
+
+"s0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "-"
+  shape = "octagon"
+]
+
+"s1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "<"
+  shape = "octagon"
+]
+
+"s2" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = ">="
+  shape = "octagon"
+]
+
+"s3" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "?"
+  shape = "octagon"
+]
+
+"s4" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "."
+  shape = "octagon"
+]
+
+"e0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0: Abs"
+  shape = "hexagon"
+]
+
+"l0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0: {1}2"
+  shape = "box"
+]
+
+"l1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1: 0"
+  shape = "box"
+]
+
+"n0" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "0"
+  shape = "invhouse"
+]
+
+"n1" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "1\n:"
+  shape = "circle"
+]
+
+"n2" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "2\n[-----]"
+  shape = "box"
+  style = "rounded"
+]
+
+"n3" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "3\n(-----)"
+  shape = "box"
+  style = "rounded"
+]
+
+"n4" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "4\n(-----)"
+  shape = "box"
+  style = "rounded"
+]
+
+"n5" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "5\n(-----)"
+  shape = "box"
+  style = "rounded"
+]
+
+"n6" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "6\n:"
+  shape = "circle"
+]
+
+"n7" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "7\n:"
+  shape = "circle"
+]
+
+"n8" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "8\n[-----]"
+  shape = "box"
+  style = "rounded"
+]
+
+"n9" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "9\n:"
+  shape = "circle"
+]
+
+"n10" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "10\n:"
+  shape = "circle"
+]
+
+"n11" [
+  fontsize = "14"
+  fontcolor = "black"
+  label = "11"
+  shape = "invhouse"
+]
+
+"n0" -> "e0" [
+  style = "invis"
+]
+
+"l0" -> "n2" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Delayed"
+  color = "black"
+  style = "dotted"
+]
+
+"n1" -> "n0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Data"
+  color = "black"
+  style = "solid"
+]
+
+"n1" -> "s0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Func"
+  color = "black"
+  style = "solid"
+]
+
+"n2" -> "n1" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "solid"
+]
+
+"n3" -> "l0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "solid"
+]
+
+"n3" -> "n0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "solid"
+]
+
+"n4" -> "n0" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "solid"
+]
+
+"n4" -> "l1" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "solid"
+]
+
+"n5" -> "s1" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "solid"
+]
+
+"n5" -> "s2" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "2"
+  color = "black"
+  style = "solid"
+]
+
+"n6" -> "n4" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Data"
+  color = "black"
+  style = "solid"
+]
+
+"n6" -> "n5" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Func"
+  color = "black"
+  style = "solid"
+]
+
+"n7" -> "n6" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Data"
+  color = "black"
+  style = "solid"
+]
+
+"n7" -> "s3" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Func"
+  color = "black"
+  style = "solid"
+]
+
+"n8" -> "n7" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "1"
+  color = "black"
+  style = "solid"
+]
+
+"n9" -> "n3" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Data"
+  color = "black"
+  style = "solid"
+]
+
+"n9" -> "n8" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Func"
+  color = "black"
+  style = "solid"
+]
+
+"n10" -> "n9" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Data"
+  color = "black"
+  style = "solid"
+]
+
+"n10" -> "s4" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Func"
+  color = "black"
+  style = "solid"
+]
+
+"n11" -> "n10" [
+  fontsize = "10"
+  fontcolor = "black"
+  label = "Result"
+  color = "black"
+  style = "solid"
+]
+
+subgraph "cluster_delay_1" { "n1" "n2" }
+}

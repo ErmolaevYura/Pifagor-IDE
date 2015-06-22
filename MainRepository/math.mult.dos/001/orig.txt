@@ -1,0 +1,4 @@
+math.mult.dos << funcdef X
+{
+	return << (X,2):*;
+}

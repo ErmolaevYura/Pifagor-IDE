@@ -1,0 +1,4 @@
+factR  << funcdef N
+{
+  (1,N):FactRightRec >> return
+}

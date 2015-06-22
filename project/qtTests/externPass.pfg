@@ -1,0 +1,22 @@
+//берем экстерн-элемент и передаем его в другую функцию, где и используем
+//проверяется, нет ли ошибок с обработкой экстерн-элементов в других функциях
+
+qtTests.passExtern << funcdef X
+{
+	return << ((X,qtTests.summer):qtTests.openSpec,
+			(X,qtTests.multer):qtTests.openSpec);
+}
+qtTests.openExtern << funcdef X
+{
+	x1 << X:1;
+	x2 << X:2;
+	return << x1:x2;
+}
+qtTests.summer << funcdef X
+{
+	return << X:+;
+}
+qtTests.multer << funcdef X
+{
+	return << X:*;
+}

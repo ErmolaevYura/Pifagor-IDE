@@ -1,0 +1,40 @@
+math.mult.uno << funcdef X
+{
+	return << X;
+}
+math.mult.dos << funcdef X
+{
+	return << (X,2):*;
+}
+math.mult.tres << funcdef X
+{
+	return << (X,3):*;
+}
+math.mult.cuatro << funcdef X
+{
+	return << X:math.mult.dos:math.mult.dos;
+}
+math.mult.cinco << funcdef X
+{
+	return << (X:math.mult.dos,X:math.mult.tres):+;
+}
+math.mult.seis << funcdef X
+{
+	return << X:math.mult.dos:math.mult.tres;
+}
+math.mult.siete << funcdef X
+{
+	return << (X:math.mult.tres,X:math.mult.cuatro):+;
+}
+math.mult.ocho << funcdef X
+{
+	return << X:math.mult.dos:math.mult.dos:math.mult.dos;
+}
+math.mult.list << funcdef X
+{
+	return << (X:1,X:2):*;
+}
+math.mult.lister << funcdef X
+{
+	return << [X:math.mult.uno, X:math.mult.dos, X:math.mult.tres, X:math.mult.cuatro, X:math.mult.cinco, X:math.mult.seis, X:math.mult.siete, X:math.mult.ocho];
+}

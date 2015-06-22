@@ -1,0 +1,36 @@
+qtTests.folds.foldr << funcdef X //X=(func,acc,list)
+{
+	func << X:1;
+	acc << X:2;
+	list << X:3;
+	listLen << list:|;
+	mListLen << listLen:-;
+	key << ((listLen,0):[=,!=]):?;
+	val << (acc,
+		{ 
+			block{
+				tailFold << (func,acc,list:mListLen):qtTests.folds.foldr;
+				break << (list:listLen,tailFold):func;
+			}	
+		});
+	return << val:key:.;
+}
+qtTests.folds.foldl << funcdef X //X=(func,acc,list)
+{
+	func << X:1;
+	acc << X:2;
+	list << X:3;
+	listLen <<list:|;
+	key << ((listLen,0):[=,!=]):?;
+	val << (acc,
+		{
+			block{
+				newAcc << (acc,list:1):func;
+				break << (func,newAcc,list:-1):qtTests.folds.foldl;
+			}
+		});
+	return << val:key:.;
+} 
+
+
+        

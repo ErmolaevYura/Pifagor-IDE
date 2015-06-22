@@ -1,0 +1,16 @@
+qtTests.extern1 << funcdef X
+{
+	return << (X,2):*;
+}
+qtTests.extern2 << funcdef X
+{
+	return << (X:1:qtTests.extern1,X:2:qtTests.extern1):*;
+}
+qtTests.externMain1 << funcdef X
+{
+	return << (X:qtTests.extern1,5):+;
+}
+qtTests.externMain2 << funcdef X
+{
+	return << (X:qtTests.extern2,15):+;
+}

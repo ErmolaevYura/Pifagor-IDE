@@ -1,0 +1,4 @@
+math.mult.uno << funcdef X
+{
+	return << X;
+}

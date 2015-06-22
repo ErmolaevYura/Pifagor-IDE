@@ -1,0 +1,47 @@
+//В примерах asSummerMain и asOpenerMain формируется список вида "(1,2,3,4,5)",
+//но элементы поступают туда в порядке "(1,3,2,5,4)";
+//asSummerMain, asOpenerMain - формирование списков и вызов asSummer/asOpener
+//asSummer - рекурсивное сложение элементов асинхронного списка
+//asOpener - рекурсивная развертка элементов асинхронного списка в список данных
+
+qtTests.asSummerMain << funcdef X
+{
+	one << 1;
+	three << (2,1):+;
+	two << (three,one):-;
+	five << (two,three):+;
+	four << (five,one):-;
+	list << async(one,two,three,four,five);
+	return << list:qtTests.asSummer;
+}
+qtTests.asSummer << funcdef X
+{
+	listLen << X:|;
+
+	key << ((listLen,0):[=,!=]):?;
+	oper << (0,{block {
+				head << X:1;
+				tail << X:-1;
+				break << (head,tail:qtTests.asSummer):+;
+			}}	
+		);	
+	return << oper:key:.;
+}
+
+qtTests.asOpenerMain << funcdef X
+{
+	one << 1;
+	three << (2,1):+;
+	two << (three,one):-;
+	five << (two,three):+;
+	four << (five,one):-;
+	list << async(one,two,three,four,five);
+	return << list:qtTests.asOpener;
+}
+qtTests.asOpener << funcdef X
+{
+	len << X:|;
+	key << ((len,0):[=,!=]):?;	
+	oper << ("END",{(X:1,X:-1:qtTests.asOpener)});
+	return << oper:key:.;
+}

@@ -1,0 +1,4 @@
+math.mult.list << funcdef X
+{
+	return << (X:1,X:2):*;
+}

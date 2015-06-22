@@ -1,0 +1,10 @@
+External
+	0	factR
+	1	FactRightRec
+Local
+	0	1
+id	delay	operation	links		positions
+0	0	arg				pos 1 19 1 20
+1	0	(---)		loc:0 0		pos 3 3 3 8
+2	0	:		1 ext:1		pos 3 8 3 9
+3	0	return		2		pos 3 25 3 31

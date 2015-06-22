@@ -1,0 +1,12 @@
+qtTests.parlist1 << funcdef X
+{
+	return << (10,20):[+,-,*,/];
+}
+qtTests.parlist2 << funcdef X
+{
+	return << X:[+,-,*,/];
+}
+qtTests.parlist3 << funcdef X
+{
+	return << [(10,20),(30,40),(50,60)]:[+,-,*,/];
+}

@@ -1,0 +1,4 @@
+sem.list.par << funcdef X
+{
+  return << (1,2):[[+,-,*,/],[-,+,+,-]];
+}

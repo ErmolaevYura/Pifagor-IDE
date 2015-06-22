@@ -1,0 +1,4 @@
+math.mult.lister << funcdef X
+{
+	return << [X:math.mult.uno, X:math.mult.dos, X:math.mult.tres, X:math.mult.cuatro, X:math.mult.cinco, X:math.mult.seis, X:math.mult.siete, X:math.mult.ocho];
+}

@@ -1,0 +1,13 @@
+qtTests.filter.filter << funcdef X	// X = (pred, list)
+{
+	pred << X:1;
+	list << X:2;
+	mask << (list:[]:pred);
+	indexMask << mask:?;
+	return << (list:indexMask);
+}
+qtTests.filter.callFilter << funcdef list
+{
+	return << [(qtTests.isPosit,list),(qtTests.isNegat,list),(qtTests.isZero,list)]:qtTests.filter.filter;
+}
+

@@ -1,0 +1,31 @@
+math.vector.sum << funcdef X {
+  Len << X:| ;	
+  k<<((Len,2):[<,=,>]):?;
+  m << (
+     X:1,
+     {X:+},
+     {block {
+          OddVec<< X:[(1,Len,2):..:[]]:.;
+          EvenVec<< X:[(2,Len,2):..:[]]:.;
+          os << (OddVec):math.vector.sum;
+          es << (EvenVec):math.vector.sum;
+          break << (os,es):+;
+       }
+     }
+  );
+  return << m:k:.;
+};
+
+math.vector.rmult << funcdef X {
+  Len<<X:|;
+  return<<.^[((Len,2):[<,=,>]):?]^ (
+      X,
+      {X:*},
+      {block {
+           t1 << X:1;
+           t2 << X:-1:math.vector.rmult;
+           (t1,t2):+>>break
+         }
+      }
+  );
+};

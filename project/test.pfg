@@ -1,0 +1,78 @@
+test.ret << funcdef X
+{
+	return << X;
+}
+test.constRet5 << funcdef X
+{
+	return << 5;
+}
+test.inter << funcdef X
+{
+	y << (1,2,3,X);
+	return << (y:2,y:4):*;
+}
+test.dl << funcdef X
+{
+	a1 << (1,2);
+	a2 << (3,4);
+	return << (a1,X):*;
+}
+test.inter2 << funcdef X
+{
+	return << X:*;
+}
+test.delay << funcdef X
+{
+	y << {(X,2)};
+	return << y:*;
+}
+test.plist << funcdef X
+{
+	y << [1,2,3];
+	return << (X,4,5,6);
+}
+test.parInter << funcdef X
+{
+	a << +;
+	b << -;
+	c << *;
+	d << /;
+	e << [a,b,c,d];	
+	return << X:e;
+}
+test.parInter2 << funcdef X
+{
+	a << +;
+	b << -;
+	c << *;
+	d << /;
+	e << [a,b,c,d];	
+	return << [(1,2),(3,4),(5,6),(7,8),(9,10)]:e;
+}
+test.extern << funcdef X
+{
+	return << (X,2):*;
+}
+test.externMain << funcdef X
+{
+	return << (X:test.extern,5):+;
+}
+test.extern2 << funcdef X
+{
+	return << (X:1:test.extern,X:2:test.extern):*;
+}
+test.externMain2 << funcdef X
+{
+	return << (X:test.extern2,5):+;
+}
+test.inter3 << funcdef X
+{
+	return << (X:+,X:-,X:*,X:/);
+}
+
+test.fact<<funcdef X
+{
+	fl << ((X,1):[<=,>]):?;
+	act << (X,{ (X, (X,1):-:test.fact ):*  } );
+	return << act:fl:.;
+}

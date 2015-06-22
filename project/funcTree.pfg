@@ -1,0 +1,31 @@
+tree.f1 << funcdef
+{
+	return << (tree.f2, tree.f3, tree.f4, tree.f5);
+}
+tree.f2 << funcdef
+{
+	return << (tree.f3, tree.f4);
+}
+tree.f3 << funcdef
+{
+	return << (tree.f5, tree.f6);
+}
+tree.f4 << funcdef 
+{
+	return << (tree.f5, tree.f6);
+}
+tree.f5 << funcdef
+{
+	return << tree.f6;
+}
+tree.f6 << funcdef
+{
+	return << tree.f7;
+}
+tree.f7 << funcdef
+{
+	return << tree.f1;
+}
+
+
+

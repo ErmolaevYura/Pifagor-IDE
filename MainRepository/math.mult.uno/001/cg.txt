@@ -1,0 +1,6 @@
+math.mult.uno
+id	delay	automat		inode	links
+0	0	arg,0		0	links:1,1;
+1	0	return,0		1	
+Signals: (Number, Node, Input)
+Dynamic links: (Number, Delay list, Node)

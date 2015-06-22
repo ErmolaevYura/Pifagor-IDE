@@ -1,0 +1,4 @@
+math.mult.tres << funcdef X
+{
+	return << (X,3):*;
+}

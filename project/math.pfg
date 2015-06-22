@@ -1,0 +1,12 @@
+math.fact<<funcdef X
+{
+fl << ((X,1):[<=,>]):?;
+act << (X,{ (X, (X,1):-:math.fact ):*  } );
+return << act:fl:.;
+}
+math.abs << funcdef X
+{
+val<<({(0,X):-},X);
+kluch<<((X,0):[<,>=]):?;
+return<<val:kluch:.;
+}

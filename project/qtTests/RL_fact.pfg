@@ -1,0 +1,6 @@
+qtTests.fact<<funcdef X
+{
+	fl << ((X,1):[<=,>]):?;
+	act << (X,{ (X, (X,1):-:qtTests.fact ):*  } );
+	return << act:fl:.;
+}

@@ -1,0 +1,10 @@
+Extern	Name
+0	
+1	
+2	
+Local	Name
+Actor	Name
+0	X
+1	
+2	
+3	

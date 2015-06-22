@@ -1,0 +1,35 @@
+External
+	0	FactRightRec
+Local
+	0	1
+	1	2
+	2	0
+	3	1
+	4	"Incorrect negative argument"
+	5	1
+	6	{1}19
+id	delay	operation	links		positions
+0	0	arg				pos 1 25 1 29
+1	0	:		0 loc:0		pos 3 13 3 14
+2	0	:		0 loc:1		pos 3 25 3 26
+3	0	(---)		2 loc:2		pos 4 5 4 10
+4	0	[---]		< =		pos 4 11 4 16
+5	0	:		3 4		pos 4 10 4 11
+6	0	(---)		2 loc:3		pos 4 18 4 23
+7	0	[---]		= >		pos 4 24 4 29
+8	0	:		6 7		pos 4 23 4 24
+9	0	(---)		5 8		pos 4 4 4 30
+10	0	:		9 ?		pos 4 30 4 31
+11	0	[---]		10		pos 4 3 4 33
+12	0	(---)		loc:4 2		pos 5 7 5 41
+13	1	(---)		1 2		pos 8 9 8 16
+14	1	:		13 *		pos 8 16 8 17
+15	1	(---)		2 loc:5		pos 8 20 8 25
+16	1	:		15 -		pos 8 25 8 26
+17	1	(---)		14 16		pos 8 8 8 28
+18	1	:		17 ext:0		pos 8 28 8 29
+19	1	[---]		18		pos 8 7 8 42
+20	0	(---)		12 1 1 loc:6		pos 4 35 9 4
+21	0	:		20 11		pos 4 33 4 34
+22	0	:		21 .		pos 9 4 9 5
+23	0	return		22		pos 9 10 9 16

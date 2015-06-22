@@ -1,0 +1,16 @@
+qtTests.bigFunc << funcdef X
+{
+	return << (((X:1,1000):*,(X:2,100):*):+,
+		  ((X:3,10):*,X:4):+):+;
+}
+qtTests.uncurry << funcdef X		// X = (F2, A2), F2=(f1,X1,…,XM), A2= (XM+1,…,XN)
+{
+	f2 << X:1;
+	f1 << f2:1;
+	argsFull << (f2:-1:[],X:-1:[]);
+	return << argsFull:f1;
+}
+qtTests.callUncurry << funcdef X
+{
+	return << ((qtTests.bigFunc,5,6),7,8):qtTests.uncurry;
+}

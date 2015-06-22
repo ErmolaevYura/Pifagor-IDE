@@ -1,0 +1,29 @@
+parfact.parfact<< funcdef Pair 
+{
+  x << ((Pair:-, 0):[<,=,>]):?;
+  y << (
+    ("Incorrect Pair", Pair),
+    Pair:1,
+    	{   		
+		block
+		{
+			middle << (Pair:+,2):%:1;
+			op1 << (Pair:1,(middle, 1):+);
+			op2 << (middle,Pair:2);
+			break << ([op1,op2]:parfact.parfact):*;
+		}
+	}
+     );
+  y:x:. >> return;
+}
+parfact.fact << funcdef N
+{
+  [((N,0):[<,=], (N,1):[=,>]):?]^
+  (
+     ("Incorrect negative argument", N),
+     1,
+     1,
+     {(N,2):parfact.parfact}
+  ):. >> return
+}
+
