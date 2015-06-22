@@ -36,20 +36,20 @@ public:
 protected:
 	virtual void closeEvent(QCloseEvent *event);
 private slots:
-//Μενώ->File
+//ΓΓ¥Γ­ΓΎ->File
 	void createFile();
 	void openFile();
 	bool saveFile();
 	void saveAsFile();
 	void closeFile();
-//Μενώ->Edit
+//ΓΓ¥Γ­ΓΎ->Edit
 	void cut();
 	void copy();
 	void paste();
-//Μενώ->Setting
+//ΓΓ¥Γ­ΓΎ->Setting
 	void fontSetting();
 	void pathSetting();
-//Μενώ->Build
+//ΓΓ¥Γ­ΓΎ->Build
 	void build();
 	void stopBuild();
 	void run();
@@ -64,10 +64,10 @@ private slots:
 	void outCG(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/);
 	void stopGraphviz();
 	void loadArgFile();
-//Μενώ->Help
+//ΓΓ¥Γ­ΓΎ->Help
 	void about();
 	void aboutQt();
-//δπσγξε
+//Γ¤Γ°Γ³Γ£Γ®Γ¥
 	void updateMenus();
 	void updateMenus(int /*exitCode*/, QProcess::ExitStatus /*exitStatus*/);
 	void updateWindowMenu();
@@ -127,7 +127,6 @@ private:
 	void readSettings();
 	void writeSettings();
 	QString* parsRepFunc(QTreeWidgetItem *item, QString *str);
-	QString clearComment();
 	Text_Edit* activeText_Edit();
 	QMdiSubWindow* findText_Edit(const QString &fileName);
 	QMdiSubWindow* findNewText_Edit(const QString &fileName);
