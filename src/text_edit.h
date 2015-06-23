@@ -39,7 +39,6 @@ private:
 	bool maybeSave();
 	void setCurrentFile(const QString &fileName);
 	QString strippedName(const QString &fullFileName);
-	void setCurPosForCodeLighter();
 	QString curFile;
 	bool isUntitled;
 	QWidget *lineNumArea;
