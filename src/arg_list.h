@@ -15,8 +15,6 @@ public:
 	~Arg_List();
 public slots:
 	void argBuild();
-private:
-	StdValue stdValue;
 };
 
 #endif // ARG_LIST_H
